@@ -17,10 +17,18 @@ public class HelloWorldSwing {
         JLabel label = new JLabel("Hello World");
         frame.getContentPane().add(label);
 
+        JButton button = new JButton("press me");
+        
+
         //Display the window.
         frame.pack();
         frame.setVisible(true);
+        frame.add(button);
+
+        
     }
+
+
 
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
