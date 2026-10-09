@@ -11,7 +11,8 @@ public class HelloWorldSwing {
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    
+    private static JLabel labelChange;
+
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("HelloWorldSwing");
@@ -21,22 +22,30 @@ public class HelloWorldSwing {
 
         //Add the ubiquitous "Hello World" label.
         JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label);
-
+        labelChange = label;
         JButton button = new JButton("press me");
         button.addActionListener(new myListener());
+
+        panel.add(labelChange);
         panel.add(button);
         frame.getContentPane().add(panel);
         
         //Display the window.
         frame.pack();
         frame.setVisible(true);
+
+        Container pane = frame.getContentPane();
+        pane.setLayout(new GridLayout(3, 3));
+        for (int i = 0; i < 9; i++) {
+            pane.add(new JButton(Integer.toString(i)));
+        }
+
     }
 
     public static class myListener implements ActionListener            
     {  
         public void actionPerformed(ActionEvent event) { 
-            //setText("you did it");
+            labelChange.setText("you did it");
 
         }
     }
