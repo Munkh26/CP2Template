@@ -17,13 +17,16 @@ public class HelloWorldSwing {
         JFrame frame = new JFrame("HelloWorldSwing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        JPanel panel = new JPanel();
+
         //Add the ubiquitous "Hello World" label.
         JLabel label = new JLabel("Hello World");
         frame.getContentPane().add(label);
 
         JButton button = new JButton("press me");
         button.addActionListener(new myListener());
-        frame.getContentPane().add(button);
+        panel.add(button);
+        frame.getContentPane().add(panel);
         
         //Display the window.
         frame.pack();
