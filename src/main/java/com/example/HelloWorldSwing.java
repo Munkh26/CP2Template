@@ -25,6 +25,7 @@ public class HelloWorldSwing {
         labelChange = label;
         JButton button = new JButton("press me");
         button.addActionListener(new myListener());
+        buttons.add(button);
 
         panel.add(labelChange);
         panel.add(button);
@@ -35,9 +36,11 @@ public class HelloWorldSwing {
         frame.setVisible(true);
 
         Container pane = frame.getContentPane();
-        pane.setLayout(new GridLayout(3, 3));
-        for (int i = 0; i < 9; i++) {
-            pane.add(new JButton(Integer.toString(i)));
+        pane.setLayout(new GridLayout(2, 2));
+        for (int i = 0; i < 4; i++) {
+            JButton b = new JButton(Integer.toString(i));
+            b.addActionListener(new myListener());
+            pane.add(b);
         }
 
     }
@@ -45,7 +48,7 @@ public class HelloWorldSwing {
     public static class myListener implements ActionListener            
     {  
         public void actionPerformed(ActionEvent event) { 
-            labelChange.setText("you did it");
+            labelChange.setText("you did it");            
 
         }
     }
